@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+<body>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Ko Example</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div data-bind="if:loggedIn"class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li data-bind="path: '/fullname'">
+            <a data-bind="path: '/fullname'">FullName</a>
+        </li>
+        <li data-bind="path: '/crud'">
+            <a data-bind="path: '/crud'">CRUD List</a>
+        </li>
+        <li data-bind="path: '/local-sum'">
+            <a data-bind="path: '/local-sum'">Local Sum</a>
+        </li>
+        <li data-bind="path: '/remote-sum'">
+            <a data-bind="path: '/remote-sum'">Remote Sum</a>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+<ko-component-router params="routes: routes, hashbang: true, repositories: repositories,logged:loggedIn"></ko-component-router>
+<script src='vendor/jquery.min.js'></script>
+<script src='vendor/knockout-latest.min.js'></script>
+<script src='vendor/ko-component-router.min.js'></script>
+<script src='vendor/bootstrap.min.js'></script>
+<script src='js/index.js'></script>
+</body>
+</html>
