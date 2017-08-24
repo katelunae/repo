@@ -100,6 +100,37 @@ Repository.prototype.readUser = function (token) {
         });
     });
 };
+Repository.prototype.changeUser = function (token,packet) {
+    var self = this;
+    return new Promise(function (resolve, reject) {
+        $.ajax({
+            url: "http://awt.ifmledit.org" + '/api/user/me',
+            type: 'PUT',
+             //type of the element that the URL returns. because returns smth
+          //  contentType: "application/json", //type of the element we are sending to the server
+          //  data: JSON.stringify(packet), //the packet with the data we are sending to the server in json format. stringify converts
+            //javascript value to a JSON string
+           contentType: "application/json", //type of the element we are sending to the server
+            data: JSON.stringify(packet),
+             headers: {
+            "Authorization": "APIToken "+ token //"authorization requested with ..."APIToken"+...
+            },
+        }).done(function () {
+            resolve();
+        }).fail(function (err, textStatus, errorThrown) {
+          var error=new Error(err);
+            if (err.responseJSON)
+                error.textStatus=JSON.stringify(err.responseJSON.error);
+            else if(err.responseText)
+                error.textStatus=err.responseText;
+            else if (err.message)
+                error.textStatus=err.message;
+            else
+                error.textStatus="Something Went Wrong in the request";
+            reject(error);
 
+        });
+    });
+};
 exports.Repository = Repository;
 exports.createRepository = Repository;

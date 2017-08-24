@@ -44,11 +44,11 @@ function ViewModel(ctx) {
           };
 
           
+          alert(self.context.repositories.token);
+          self.context.repositories.user.changeUser(self.context.repositories.token,packet).then(function(result){
 
-          self.context.repositories.user.readUser().then(function(result){
-
-            alert(result);
-            var token = result;
+            alert("Registered");
+            
 
           }).catch(function(e){
             if(e.textStatus){
