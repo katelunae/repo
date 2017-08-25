@@ -10,10 +10,14 @@ function ViewModel(ctx) {
     self.username = ko.observable();
     //self.usernameError = ko.observable();
     self.fullname = ko.observable();
+    self.type=ko.observable();
     self.fullnameError = ko.observable();
     self.password = ko.observable();
     self.passwordError = ko.observable();
-
+    self.context.repositories.user.readUser(self.context.repositories.token).then(function(result){
+        self.fullname(result.fullname);
+        self.type(result.type);
+    });
     //self.username.subscribe(function () {
       //  self.fullnameError(undefined);
 
