@@ -7,6 +7,7 @@ function ViewModel(ctx) {
     var self = this;
     self.context=ctx;
     self.context.logged(true);
+    self.context.masterLogged(false);
     self.username = ko.observable();
     //self.usernameError = ko.observable();
     self.fullname = ko.observable();
@@ -16,7 +17,15 @@ function ViewModel(ctx) {
     self.passwordError = ko.observable();
     self.context.repositories.user.readUser(self.context.repositories.token).then(function(result){
         self.fullname(result.fullname);
+        self.username(result.username);
         self.type(result.type);
+        if (self.type()=="master"){
+          alert("yes")
+          self.context.masterLogged(true);
+        }
+      //  else{
+        //  self.selector2("No")
+      //  }
     });
     //self.username.subscribe(function () {
       //  self.fullnameError(undefined);
@@ -28,7 +37,18 @@ function ViewModel(ctx) {
         self.passwordError(undefined);
     });
 
-    self.read = function () {
+    self.logout=function(){
+
+      self.context.repositories.user.logOut(self.context.repositories.token).then(function(result){
+
+        alert(self.context.repositories.token + "logout")
+
+        window.location.href = "/#/login";
+
+      });
+    }
+
+    self.edit = function () {
 
 
       //esta parte es para poner la barra de tareas después del login
@@ -42,17 +62,20 @@ function ViewModel(ctx) {
         }
         if(!error){
           var packet={
-            "username":self.username(),
+            "fullname":self.fullname(),
             "password":self.password(),
 
           };
+        //var type= self.type()
+        //if(type == master){
+          //self.context.master(true);
+        //}
 
-          
           alert(self.context.repositories.token);
-          self.context.repositories.user.changeUser(self.context.repositories.token,packet).then(function(result){
+          self.context.repositories.user.changeUser(self.context.repositories.token, packet).then(function(result){
 
             alert("Registered");
-            
+
 
           }).catch(function(e){
             if(e.textStatus){

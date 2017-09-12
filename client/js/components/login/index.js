@@ -43,9 +43,10 @@ function ViewModel(ctx) {
 
           self.context.repositories.user.loginUser(packet).then(function(result){
             self.context.logged(true);
-            window.location.href = "/#!/manager"
+          //  self.context.masterLogged(false);
+            window.location.href = "/#!/edit"
             self.context.repositories.token=result; // save the token to be used everywhere in the application
-
+            alert("this is the" + self.context.repositories.token)
           }).catch(function(e){
             if(e.textStatus){
               alert(e.textStatus);

@@ -16,10 +16,7 @@ function ViewModel(ctx) {
     self.passwordError2 = ko.observable();
     self.typeUser=ko.observable();
     self.typeUserError=ko.observable();
-    //esta parte es para poner la barra de tareas después del login
-  //  self.logIn=function(){
-    //    self.context.logged(true);
-  //  };
+
     self.fullname.subscribe(function () {
         self.fullnameError(undefined);
     });
@@ -66,7 +63,9 @@ function ViewModel(ctx) {
           };
 
           self.context.repositories.user.registerUser(packet).then(function(result){
-            alert(result);
+          //  alert(result);
+            window.location.href = "/#!/login"
+
           }).catch(function(e){
             if(e.textStatus){
               alert(e.textStatus);

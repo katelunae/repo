@@ -1,0 +1,98 @@
+<div class="container">
+
+</div>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+		<!-- Website CSS style
+		<link href="css/bootstrap.min.css" rel="stylesheet"> -->
+
+		<!-- Website Font style -->
+	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+		<!--<link rel="stylesheet" href="style.css">-->
+		<!-- Google Fonts -->
+		<link href='https://fonts.googleapis.com/css?family=Passion+One' rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
+
+		<title>Admin</title>
+	</head>
+	<body>
+		<div class="container">
+			<div class="row main">
+				<div class="main-login main-center">
+			     <div><h5>Here you can see the information of the selected campaign. You can also modify the parameters you need and click edit.</h5></div>
+					<form class="" method="post" action="#">
+
+						<div class="form-group">
+							<label for="id" class="cols-sm-2 control-label">ID: </label> <span data-bind = "text: id" type='text' id="id" readonly="true"></span>
+						</div>
+            <div class="form-group">
+							<label for="name" class="cols-sm-2 control-label">Name: </label> <span data-bind = "text: name" type='text' id="name" readonly="true"></span>
+              <input data-bind='textinput: name' class="form-control" type="text" id="campaignName"  placeholder="Enter the name of the campaign" />
+            </div>
+            <div class="form-group">
+              <label for="status" class="cols-sm-2 control-label">Status: </label> <span data-bind = "text: status" type='text' id="status" readonly="true"></span>
+            </div>
+            <div class="form-group">
+              <label for="selection" class="cols-sm-2 control-label">Selection Workers: </label> <span data-bind = "text: selection" type='text' id="selection" readonly="true"></span>
+              <input data-bind='textinput: selection'type="text" class="form-control"  id="selectionWorkers"  placeholder="Enter the number of workers" />
+            </div>
+            <div class="form-group">
+              <label for="threshold" class="cols-sm-2 control-label">Threshold before annotation: </label> <span data-bind = "text: threshold" type='text' id="threshold" readonly="true"></span>
+              <input data-bind ='textinput: threshold'type="text" class="form-control" id="threshold"  placeholder="Enter the threshold"/>
+            </div>
+            <div class="form-group">
+              <label for="annotation" class="cols-sm-2 control-label">Annotation Workers: </label> <span data-bind = "text: annotation" type='text' id="annotation" readonly="true"></span>
+              <input data-bind='textinput: annotation' type="text" class="form-control" id="annotationWorkers"  placeholder="Enter the number of workers"/>
+            </div>
+            <div class="form-group">
+              <label for="size" class="cols-sm-2 control-label">Width of pixels for annotation: </label> <span data-bind = "text: size" type='text' id="size" readonly="true"></span>
+              <input data-bind='textinput: size' type="text" class="form-control" id="widthPixel"  placeholder="Enter the number of pixels"/>
+            </div>
+            <div class="form-group">
+              <label for="image" class="cols-sm-2 control-label">Images: </label> <span data-bind = "text: image" type='text' id="image" readonly="true"></span>
+            </div>
+            <div class="form-group">
+              <label for="worker" class="cols-sm-2 control-label">Workers: </label> <span data-bind = "text: worker" type='text' id="worker" readonly="true"></span>
+            </div>
+            <div class="form-group">
+              <label for="execution" class="cols-sm-2 control-label">Execution URL: </label> <span data-bind = "text: execution" type='text' id="execution" readonly="true"></span>
+            </div>
+            <div class="form-group">
+              <label for="statistics" class="cols-sm-2 control-label">Statistics: </label> <span data-bind = "text: statistics" type='text' id="statistics" readonly="true"></span>
+            </div>
+
+
+
+
+						<div class="form-group ">
+							<button data-bind='click: editcampaign' type="button" id="editcampaign" class="btn btn-primary btn-lg btn-block read-button">Edit</button>
+						</div>
+            <div class="form-group ">
+							<button data-bind='click: addImage' type="button" id="addImage" class="btn btn-primary btn-lg btn-block read-button">Add images</button>
+						</div>
+            <div class="form-group ">
+							<button data-bind='click: imageInfo' type="button" id="imageInfo" class="btn btn-primary btn-lg btn-block read-button">Images information</button>
+						</div>
+            <div class="form-group ">
+							<button data-bind='click: campaignWorkers' type="button" id="campaignWorkers" class="btn btn-primary btn-lg btn-block read-button">Campaign Workers</button>
+						</div>
+            <div class="form-group ">
+							<button data-bind='click: startCampaign' type="button" id="startCampaign" class="btn btn-primary btn-lg btn-block read-button">Start Campaign</button>
+						</div>
+            <div class="form-group ">
+							<button data-bind='click: terminateCampaign' type="button" id="terminateCampaign" class="btn btn-primary btn-lg btn-block read-button">Terminate Campaign</button>
+						</div>
+            <div class="form-group ">
+							<button data-bind='click: Statistics' type="button" id="Statistics" class="btn btn-primary btn-lg btn-block read-button">Statistics</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+
+		 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>

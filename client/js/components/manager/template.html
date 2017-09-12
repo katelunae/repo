@@ -1,5 +1,6 @@
 <div class="container">
     <h1>Hello <span data-bind = "text: username" type='text' id="username" readonly="true"></span></h1>
+    <h3> <span data-bind = "text: type" type='text' id="type" readonly="true"></span></h3>
 </div>
 <!DOCTYPE html>
 <html lang="en">
@@ -28,7 +29,7 @@
 
 
 						<div class="form-group">
-							<label for="fullname" class="cols-sm-2 control-label">Full Name</label>
+							<label for="fullname" class="cols-sm-2 control-label">Full Name: </label> <span data-bind = "text: fullname" type='text' id="fullname" readonly="true"></span>
 							<div class="cols-sm-10">
                 <p style="color:red" data-bind="text:fullnameError"></p>
 								<div class="input-group">
@@ -52,9 +53,11 @@
 
 
 						<div class="form-group ">
-							<button data-bind='click: read' type="button" id="read" class="btn btn-primary btn-lg btn-block read-button">Edit</button>
+							<button data-bind='click: edit' type="button" id="edit" class="btn btn-primary btn-lg btn-block read-button">Edit</button>
 						</div>
-
+            <div class="form-group ">
+              <button data-bind='click: logout' type="button" id="logout" class="btn btn-primary btn-lg btn-block read-button">Log Out</button>
+            </div>
 					</form>
 				</div>
 			</div>

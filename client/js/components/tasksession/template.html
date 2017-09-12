@@ -1,0 +1,81 @@
+<div class="container">
+    <h1>Information of the images</h1>
+</div>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+		<!-- Website CSS style
+		<link href="css/bootstrap.min.css" rel="stylesheet"> -->
+
+		<!-- Website Font style -->
+	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+		<!--<link rel="stylesheet" href="style.css">-->
+		<!-- Google Fonts -->
+		<link href='https://fonts.googleapis.com/css?family=Passion+One' rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
+
+		<title>Admin</title>
+	</head>
+	<body>
+		<div class="container">
+			<div class="row main">
+				<div class="main-login main-center">
+				<h5>Here you can find your campaigns.</h5>
+					<form class="" method="post" action="#">
+
+            <table>
+              <thead><tr>
+                <th colspan="1"> Id      </th><th colspan="1">   Name of the Campaign   </th><th colspan="1">  Status  </th><th></th>
+              </tr></thead>
+              <!-- Todo: Generate table body -->
+              <tbody>
+                <tr>
+                  <td><span data-bind = "text: type" type='text' id="type" readonly="true"></span></td>
+              <!--    <td><span data-bind = "text: canonical" type='text' id="name" readonly="true"></span></td> -->
+                  <td><span data-bind = "text: image" type='text' id="image" readonly="true"></span></td>
+              <!--    <td><span data-bind = "text: size" type='text' id="size" readonly="true"></span></td>-->
+                </tr>
+             </tbody>
+           </table>
+				</div>
+			</div>
+		</div>
+    <div class="container">
+      <div class="row">
+        <div>
+
+      <!--    <div class="col-lg-3 col-sm-4 col-xs-6">
+            <a href="#" data-bind="click: $parent.delete.bind($data, $index())"type="button">x</a>
+            <a href="#" data-bind="click: $parent.statimg.bind($data, $index()) "type="button">Statistics</a> -->
+            <a title="Image 1" href="#" >
+              <img data-bind="attr:{src: 'http://awt.ifmledit.org'+ image()}" class="thumbnail img-responsive">
+            </a>
+      <!--     </div>
+         <div class="col-lg-3 col-sm-4 col-xs-6"><a title="Image 2" href="#"><img class="thumbnail img-responsive" src="//placehold.it/600x350/2255EE"></a></div>
+          <div class="col-lg-3 col-sm-4 col-xs-6"><a title="Image 3" href="#"><img class="thumbnail img-responsive" src="//placehold.it/600x350/449955/FFF"></a></div>
+          <div class="col-lg-3 col-sm-4 col-xs-6"><a title="Image 4" href="#"><img class="thumbnail img-responsive" src="//placehold.it/600x350/992233"></a></div>
+          <div class="col-lg-3 col-sm-4 col-xs-6"><a title="Image 5" href="#"><img class="thumbnail img-responsive" src="//placehold.it/600x350/2255EE"></a></div>
+          <div class="col-lg-3 col-sm-4 col-xs-6"><a title="Image 6" href="#"><img class="thumbnail img-responsive" src="//placehold.it/600x350/449955/FFF"></a></div>
+          <div class="col-lg-3 col-sm-4 col-xs-6"><a title="Image 8" href="#"><img class="thumbnail img-responsive" src="//placehold.it/600x350/777"></a></div>
+          <div class="col-lg-3 col-sm-4 col-xs-6"><a title="Image 9" href="#"><img class="thumbnail img-responsive" src="//placehold.it/600x350/992233"></a></div>
+          <div class="col-lg-3 col-sm-4 col-xs-6"><a title="Image 10" href="#"><img class="thumbnail img-responsive" src="//placehold.it/600x350/EEE"></a></div>
+          <div class="col-lg-3 col-sm-4 col-xs-6"><a title="Image 11" href="#"><img class="thumbnail img-responsive" src="//placehold.it/600x350/449955/FFF"></a></div>
+          <div class="col-lg-3 col-sm-4 col-xs-6"><a title="Image 12" href="#"><img class="thumbnail img-responsive" src="//placehold.it/600x350/DDD"></a></div>
+          <div class="col-lg-3 col-sm-4 col-xs-6"><a title="Image 13" href="#"><img class="thumbnail img-responsive" src="//placehold.it/600x350/992233"></a></div> -->
+        </div>
+        <hr>
+
+        <hr>
+      </div>
+    </div>
+    <div>
+      <button data-bind='click: accept' type="button" id="accept" class="btn btn-primary btn-lg btn-block login-button">Accepted</button>
+    </div>
+    <div>
+      <button data-bind='click: reject' type="button" id="reject" class="btn btn-primary btn-lg btn-block login-button">Rejected</button>
+    </div>
+		 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>

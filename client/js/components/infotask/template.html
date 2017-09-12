@@ -1,0 +1,77 @@
+<div class="container">
+
+</div>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+		<!-- Website CSS style
+		<link href="css/bootstrap.min.css" rel="stylesheet"> -->
+
+		<!-- Website Font style -->
+	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+		<!--<link rel="stylesheet" href="style.css">-->
+		<!-- Google Fonts -->
+		<link href='https://fonts.googleapis.com/css?family=Passion+One' rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
+
+		<title>Admin</title>
+	</head>
+	<body>
+		<div class="container">
+			<div class="row main">
+				<div class="main-login main-center">
+			     <div><h5>Here you can see the information of the selected campaign. You can also modify the parameters you need and click edit.</h5></div>
+					<form class="" method="post" action="#">
+
+						<div class="form-group">
+							<label for="id" class="cols-sm-2 control-label">ID: </label> <span data-bind = "text: id" type='text' id="id" readonly="true"></span>
+						</div>
+            <div class="form-group">
+							<label for="type" class="cols-sm-2 control-label">Type: </label> <span data-bind = "text: type" type='text' id="type" readonly="true"></span>
+            </div>
+            <div class="form-group">
+              <label for="campaign" class="cols-sm-2 control-label">Campaign: </label> <span data-bind = "text: campaign" type='text' id="campaign" readonly="true"></span>
+            </div>
+            <div class="form-group">
+              <label for="session" class="cols-sm-2 control-label">Session: </label> <span data-bind = "text: session" type='text' id="session" readonly="true"></span>
+            </div>
+            <div class="form-group">
+              <label for="statistics" class="cols-sm-2 control-label">Statistics: </label> <span data-bind = "text: statistics" type='text' id="statistics" readonly="true"></span>
+            </div>
+
+
+            <div class="form-group ">
+              <button data-bind='click: startWorkingSession' type="button" id="startWorkingSession" class="btn btn-primary btn-lg btn-block read-button">Start Working Session</button>
+            </div>
+
+				<!--		<div class="form-group ">
+							<button data-bind='click: editcampaign' type="button" id="editcampaign" class="btn btn-primary btn-lg btn-block read-button">Edit</button>
+						</div>
+            <div class="form-group ">
+							<button data-bind='click: addImage' type="button" id="addImage" class="btn btn-primary btn-lg btn-block read-button">Add images</button>
+						</div>
+            <div class="form-group ">
+							<button data-bind='click: imageInfo' type="button" id="imageInfo" class="btn btn-primary btn-lg btn-block read-button">Images information</button>
+						</div>
+            <div class="form-group ">
+							<button data-bind='click: campaignWorkers' type="button" id="campaignWorkers" class="btn btn-primary btn-lg btn-block read-button">Campaign Workers</button>
+						</div>
+            <div class="form-group ">
+							<button data-bind='click: startWorkingSession' type="button" id="startWorkingSession" class="btn btn-primary btn-lg btn-block read-button">Start Working Session</button>
+						</div>
+            <div class="form-group ">
+							<button data-bind='click: terminateCampaign' type="button" id="terminateCampaign" class="btn btn-primary btn-lg btn-block read-button">Terminate Campaign</button>
+						</div>
+            <div class="form-group ">
+							<button data-bind='click: Statistics' type="button" id="Statistics" class="btn btn-primary btn-lg btn-block read-button">Statistics</button>
+						</div> -->
+					</form>
+				</div>
+			</div>
+		</div>
+
+		 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>

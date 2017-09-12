@@ -18,11 +18,14 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div data-bind="if:loggedIn"class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li data-bind="path: '/fullname'">
-            <a data-bind="path: '/fullname'">Profile</a>
+        <li data-bind="path: '/edit'">
+            <a data-bind="path: '/edit'">Profile</a>
         </li>
-        <li data-bind="path: '/crud'">
-            <a data-bind="path: '/crud'">H</a>
+        <li data-bind="path: '/create'">
+            <a data-bind="path: '/create'">Create Campaign</a>
+        </li>
+        <li data-bind="path: '/campaign'">
+            <a data-bind="path: '/campaign'">Your Campaigns</a>
         </li>
         <li data-bind="path: '/local-sum'">
             <a data-bind="path: '/local-sum'">Local Sum</a>

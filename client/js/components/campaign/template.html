@@ -1,0 +1,50 @@
+<div class="container">
+    <h1>Your campaigns</h1>
+</div>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+		<!-- Website CSS style
+		<link href="css/bootstrap.min.css" rel="stylesheet"> -->
+
+		<!-- Website Font style -->
+	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+		<!--<link rel="stylesheet" href="style.css">-->
+		<!-- Google Fonts -->
+		<link href='https://fonts.googleapis.com/css?family=Passion+One' rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
+
+		<title>Admin</title>
+	</head>
+	<body>
+		<div class="container">
+			<div class="row main">
+				<div class="main-login main-center">
+				<h5>Here you can find your campaigns.</h5>
+					<form class="" method="post" action="#">
+
+            <table>
+              <thead><tr>
+                <th colspan="1"> Id      </th><th colspan="1">   Name of the Campaign   </th><th colspan="1">  Status  </th><th></th>
+              </tr></thead>
+              <!-- Todo: Generate table body -->
+              <tbody data-bind= "foreach: campaigns">
+                <tr>
+                  <td><span data-bind = "text: id" type='text' id="id" readonly="true"></span></td>
+                  <td><span data-bind = "text: name" type='text' id="name" readonly="true"></span></td>
+                  <td><span data-bind = "text: status" type='text' id="status" readonly="true"></span></td>
+                  <td><a href="#" data-bind="click: $parent.info.bind($data, $index())">Campaign Information</a></td>
+                </tr>
+             </tbody>
+           </table>
+				</div>
+			</div>
+		</div>
+
+    <button data-bind='click: info' type="button" id="info" class="btn btn-primary btn-lg btn-block login-button">Check</button>
+
+		 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
