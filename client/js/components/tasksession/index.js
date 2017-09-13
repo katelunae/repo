@@ -24,10 +24,16 @@ function ViewModel(ctx) {
       //  }
         self.image(result.image);
 
-        alert(self.image())
-        alert('http://awt.ifmledit.org'+ self.image())
 
   //      self.context.repositories.url=result.id; //to use the url everywhere in the app
+    }).catch(function(e){
+        if(e.textStatus==404 || e.textStatus==410)
+        {
+            alert("No Work Available");
+            window.location.href = "/#!/infotask";
+        } 
+      else
+        alert(e.textStatus);
     });
     //self.username.subscribe(function () {
       //  self.fullnameError(undefined);
@@ -38,17 +44,42 @@ function ViewModel(ctx) {
     //self.password.subscribe(function () {
       //  self.passwordError(undefined);
     //});
-    self.accept = function() {
-
-      var packet={
-        "accepted":"true"
+    self.accept = function(packet) {
+      
+      var message="Rejected";
+      if(packet.accepted!=false){
+        alert("Accepting");
+       packet={
+        "accepted":true
       };
-      alert(packet)
-
+      message="Accepted";
+      }
       self.context.repositories.task.acceptImg(self.context.repositories.token, self.context.repositories.session, packet).then(function(result){
-        alert("this" + packet)
-      })
-      alert("this" + packet)
+        alert(message);
+        self.context.repositories.task.sessiontask(self.context.repositories.token, self.context.repositories.session).then(function(result){
+
+        self.type(result.type);
+      //  if(self.type()=="annotation"){
+        //  self.size(result.size);
+          //alert(self.size())
+      //  }
+        self.image(result.image);
+
+       
+  //      self.context.repositories.url=result.id; //to use the url everywhere in the app
+    }).catch(function(e){
+        if(e.textStatus==404 || e.textStatus==410)
+        {
+            alert("No Work Available");
+            window.location.href = "/#!/tasksuser";
+        } 
+      else
+        alert(e.textStatus+"asdads");
+    });
+      }).catch(function(e){
+        alert("Something went wrong");
+    });
+      
     //  self.context.repositories.task.sessiontask(self.context.repositories.token, self.context.repositories.session).then(function(result){
 
       //    self.type(result.type);
@@ -65,24 +96,9 @@ function ViewModel(ctx) {
 
       self.reject = function() {
         var packet={
-          "accepted":"false"
-        }
-        self.context.repositories.task.acceptImg(self.context.repositories.token, self.context.repositories.session, packet).then(function(result){
-          alert(packet)
-        })
-        self.context.repositories.task.sessiontask(self.context.repositories.token, self.context.repositories.session).then(function(result){
-
-            self.type(result.type);
-            if(self.type()=="annotation"){
-              self.size(result.size);
-              alert(self.size())
-            }
-            self.image(result.image);
-
-
-            alert('http://awt.ifmledit.org'+ self.image())
-
-      })
+          "accepted":false
+        };
+       self.accept(packet)
     }
 
     self.info = function (index) {

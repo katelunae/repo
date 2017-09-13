@@ -75,6 +75,7 @@ Repository.prototype.readTask = function (token) {
 };
 
 Repository.prototype.startsession = function (token, urlses) {
+    alert("Session id is "+urlses);
     var self = this;
     return new Promise(function (resolve, reject) {
         $.ajax({
@@ -85,23 +86,33 @@ Repository.prototype.startsession = function (token, urlses) {
             headers: {
             "Authorization": "APIToken "+ token,
             },
-        }).done(function (data) {
-            resolve(data);
-
-          //  success: function(data, status, xhr) {
-        //console.log(xhr.getResponseHeader('Location'));
-        }).fail(function (err, textStatus, errorThrown) {
-          var error=new Error(err);
-            if (err.responseJSON)
+            error: function(err, textStatus, errorThrown) { 
+            if(err.status == 404 || err.status == 410 || errorThrown == 'Not Found'|| errorThrown == 'Gone') 
+            { 
+				
+                var e=new Error(err);
+                e.textStatus=err.status;
+                reject(e);
+                
+             }
+             var error=new Error(err);
+            if(err.status)
+                error.status=err.status;
+            else if(err.responseJSON)
                 error.textStatus=JSON.stringify(err.responseJSON.error);
             else if(err.responseText)
                 error.textStatus=err.responseText;
             else if (err.message)
                 error.textStatus=err.message;
             else
-                error.textStatus="Something Went Wrong in the request";
+                error.textStatus="Couldn't get new task";    
             reject(error);
+            },
+        }).done(function (data) {
+            resolve(data);
 
+          //  success: function(data, status, xhr) {
+        //console.log(xhr.getResponseHeader('Location'));
         });
     });
 };
@@ -117,23 +128,33 @@ Repository.prototype.sessiontask = function (token, urlses) {
             headers: {
             "Authorization": "APIToken "+ token,
             },
-        }).done(function (data) {
-            resolve(data);
-
-          //  success: function(data, status, xhr) {
-        //console.log(xhr.getResponseHeader('Location'));
-        }).fail(function (err, textStatus, errorThrown) {
-          var error=new Error(err);
-            if (err.responseJSON)
+            error: function(err, textStatus, errorThrown) { 
+            if(err.status == 404 || err.status == 410 || errorThrown == 'Not Found'|| errorThrown == 'Gone') 
+            { 
+				
+                var e=new Error(err);
+                e.textStatus=err.status;
+                reject(e);
+                
+             }
+             var error=new Error(err);
+            if(err.status)
+                error.status=err.status;
+            else if(err.responseJSON)
                 error.textStatus=JSON.stringify(err.responseJSON.error);
             else if(err.responseText)
                 error.textStatus=err.responseText;
             else if (err.message)
                 error.textStatus=err.message;
             else
-                error.textStatus="Something Went Wrong in the request";
+                error.textStatus="Couldn't get new task";    
             reject(error);
+            },
+        }).done(function (data) {
+            resolve(data);
 
+          //  success: function(data, status, xhr) {
+        //console.log(xhr.getResponseHeader('Location'));
         });
     });
 };

@@ -12,7 +12,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Ko Example</a>
+      <a class="navbar-brand" href="#">Register</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -21,11 +21,14 @@
         <li data-bind="path: '/edit'">
             <a data-bind="path: '/edit'">Profile</a>
         </li>
-        <li data-bind="path: '/create'">
-            <a data-bind="path: '/create'">Create Campaign</a>
+        <li data-bind="if:masterLogged, path: '/create'">
+            <a data-bind="if:masterLogged, path: '/create'">Create Campaign</a>
         </li>
-        <li data-bind="path: '/campaign'">
-            <a data-bind="path: '/campaign'">Your Campaigns</a>
+        <li data-bind="if:masterLogged, path: '/campaign'">
+            <a data-bind="if:masterLogged, path: '/campaign'">Your Campaigns</a>
+        </li>
+        <li data-bind="ifnot:masterLogged, path: '/tasksuser'">
+          <a data-bind="ifnot:masterLogged, path: '/tasksuser'">Your Tasks</a>
         </li>
         <li data-bind="path: '/local-sum'">
             <a data-bind="path: '/local-sum'">Local Sum</a>
@@ -37,7 +40,7 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
-<ko-component-router params="routes: routes, hashbang: true, repositories: repositories,logged:loggedIn"></ko-component-router>
+<ko-component-router params="routes: routes, hashbang: true, repositories: repositories,logged:loggedIn, masterLogged:masterLogged"></ko-component-router>
 <script src='vendor/jquery.min.js'></script>
 <script src='vendor/knockout-latest.min.js'></script>
 <script src='vendor/ko-component-router.min.js'></script>

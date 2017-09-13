@@ -56,8 +56,15 @@ function ViewModel(ctx) {
     self.startWorkingSession= function () {
       self.context.repositories.task.startsession(self.context.repositories.token, self.context.repositories.session).then(function(result){
       alert("The session has started "+ self.context.repositories.session);
-    })
       window.location.href = "/#!/tasksession";
+    }).catch(function(e){
+      if(e.textStatus==404 || e.textStatus==410)
+        alert("No Work Available");
+      else
+        alert(e.textStatus);
+        
+    });
+      
     };
 
     self.terminateCampaign= function () {
